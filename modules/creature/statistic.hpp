@@ -16,8 +16,10 @@ namespace mltvrs::creature {
     template<typename T>
     concept statistic = requires(T stat, T stat2, typename T::numeric_type n) {
         requires std::integral<typename T::numeric_type>;
-        requires stars::
-            explicitly_totally_ordered_with<T, typename T::numeric_type>;
+        requires stars::explicitly_totally_ordered_with<
+            T,
+            typename T::numeric_type
+        >;
 
         requires stars::explicitly_convertible_to<T, typename T::numeric_type>;
         requires stars::explicitly_convertible_to<typename T::numeric_type, T>;
