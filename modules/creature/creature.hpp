@@ -115,7 +115,7 @@ public:
     static constexpr bool is_specialized = true;
 
     static constexpr S min() noexcept { return 0; }
-    static constexpr S max() noexcept { return 35; }
+    static constexpr S max() noexcept { return 30; }
     static constexpr S lowest() noexcept { return 0; }
 
     static constexpr int digits =
