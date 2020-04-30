@@ -47,7 +47,8 @@ namespace mltvrs::creature {
 
         explicit constexpr dnd_stat(numeric_type) noexcept;
 
-        explicit constexpr operator numeric_type() const noexcept;
+        explicit constexpr operator const numeric_type&() const noexcept;
+        explicit constexpr operator numeric_type&() noexcept;
 
         constexpr bool operator==(const dnd_stat& rhs) const noexcept = default;
         constexpr auto
