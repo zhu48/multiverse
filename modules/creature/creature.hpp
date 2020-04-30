@@ -9,6 +9,8 @@ namespace mltvrs::creature {
 
     template<statistic S>
     struct saving_throw {
+        using modifier_type = std::make_signed_t<typename S::numeric_type>;
+
         proficient proficiency;
 
         [[nodiscard]] constexpr auto modifier() const noexcept -> modifier_type;
