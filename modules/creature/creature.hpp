@@ -31,14 +31,6 @@ namespace mltvrs::creature {
 
     // clang-format on
 
-    template<statistic T>
-    constexpr bool is_statistic() noexcept {
-        return true;
-    };
-
-    template<typename T>
-    inline constexpr bool is_statistic_v = is_statistic<T>();
-
     class dnd_stat {
     public:
         using numeric_type = std::uint_fast16_t;
