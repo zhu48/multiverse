@@ -71,10 +71,12 @@ namespace mltvrs::creature {
         using dnd_stat::dnd_stat;
     };
 
+    template<std::derived_from<dnd_stat> S>
     constexpr bool
-    operator==(const dnd_stat& lhs, const dnd_stat::numeric_type& rhs) noexcept;
+    operator==(const S& lhs, const typename S::numeric_type& rhs) noexcept;
+    template<std::derived_from<dnd_stat> S>
     constexpr auto
-    operator<=>(const dnd_stat& lhs, const dnd_stat::numeric_type& rhs) noexcept
+    operator<=>(const S& lhs, const typename S::numeric_type& rhs) noexcept
         -> std::strong_ordering;
 
     template<std::derived_from<dnd_stat> S>
