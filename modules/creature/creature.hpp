@@ -33,7 +33,7 @@ namespace mltvrs::creature {
 
     class dnd_stat {
     public:
-        using numeric_type = std::uint_fast16_t;
+        using numeric_type = std::uint_fast8_t;
 
         explicit constexpr dnd_stat(numeric_type) noexcept;
 
