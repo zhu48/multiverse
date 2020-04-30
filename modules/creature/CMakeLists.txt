@@ -10,7 +10,7 @@ get_filename_component(PARENT_DIR ${CMAKE_CURRENT_LIST_DIR} DIRECTORY)
 
 set(
     CREATURE_HPP_FILES
-        ${CMAKE_CURRENT_LIST_DIR}/creature.hpp
+        ${CMAKE_CURRENT_LIST_DIR}/statistic.hpp
 )
 
 set(

@@ -1,5 +1,5 @@
-#ifndef MULTIVERSE_CREATURE_HPP
-#define MULTIVERSE_CREATURE_HPP
+#ifndef MULTIVERSE_STATISTIC_HPP
+#define MULTIVERSE_STATISTIC_HPP
 
 #include <cstdint>
 
@@ -185,4 +185,4 @@ struct std::basic_common_reference<typename U::numeric_type, U, TQual, UQual> {
     using type = UQual<U>&;
 };
 
-#endif // #ifndef MULTIVERSE_CREATURE_HPP
+#endif // #ifndef MULTIVERSE_STATISTIC_HPP
