@@ -3,6 +3,7 @@
 
 #include <cstdint>
 
+#include <compare>
 #include <concepts>
 
 #include "stars/concepts.hpp"
@@ -13,7 +14,7 @@ namespace mltvrs::creature {
     // clang-format off
 
     template<typename T>
-    concept statistic = requires(T stat, typename T::numeric_type n) {
+    concept statistic = requires(T stat, T stat2, typename T::numeric_type n) {
         requires std::integral<typename T::numeric_type>;
         requires stars::
             explicitly_totally_ordered_with<T, typename T::numeric_type>;
@@ -21,12 +22,19 @@ namespace mltvrs::creature {
         requires stars::explicitly_convertible_to<T, typename T::numeric_type>;
         requires stars::explicitly_convertible_to<typename T::numeric_type, T>;
 
-        { stat +    n } -> std::same_as<T>;
-        {    n + stat } -> std::same_as<T>;
-        { stat -    n } -> std::same_as<T>;
-        { stat - stat } -> std::signed_integral;
-        { stat +=   n } -> std::same_as<T&>;
-        { stat -=   n } -> std::same_as<T&>;
+        // this requires T::max to be a constant expression
+        requires std::same_as<
+            typename std::integral_constant<
+                typename T::numeric_type,
+                T::max>::value_type,
+            typename T::numeric_type>;
+
+        { stat +    n  } -> std::same_as<T>;
+        {    n + stat  } -> std::same_as<T>;
+        { stat -    n  } -> std::same_as<T>;
+        { stat - stat2 } -> std::signed_integral;
+        { stat +=   n  } -> std::same_as<T&>;
+        { stat -=   n  } -> std::same_as<T&>;
     };
 
     // clang-format on
@@ -34,6 +42,8 @@ namespace mltvrs::creature {
     class dnd_stat {
     public:
         using numeric_type = std::uint_fast8_t;
+
+        static constexpr numeric_type max{30};
 
         explicit constexpr dnd_stat(numeric_type) noexcept;
 
@@ -109,7 +119,7 @@ public:
     static constexpr bool is_specialized = true;
 
     static constexpr S min() noexcept { return 0; }
-    static constexpr S max() noexcept { return 30; }
+    static constexpr S max() noexcept { return S::max; }
     static constexpr S lowest() noexcept { return 0; }
 
     static constexpr int digits =

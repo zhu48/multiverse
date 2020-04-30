@@ -62,3 +62,16 @@ if(CREATURE_CLANG_FORMAT)
                 ${TEST_CREATURE_STAT_CPP_FILES}
     )
 endif()
+
+if(CREATURE_CLANG_TIDY)
+    add_custom_target(
+        test_creature_stat_clang_tidy
+            COMMAND
+                ${CREATURE_CLANG_TIDY}
+                    -p ${CMAKE_CURRENT_BINARY_DIR}
+                    ${TEST_CREATURE_STAT_CPP_FILES}
+            DEPENDS
+                ${CREATURE_HPP_FILES}
+                ${TEST_CREATURE_STAT_CPP_FILES}
+    )
+endif()
