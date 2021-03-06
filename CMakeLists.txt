@@ -62,6 +62,8 @@ include(CTest)
 find_program(MLTVRS_CLANG_FORMAT clang-format)
 find_program(MLTVRS_CLANG_TIDY   clang-tidy)
 
+add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/modules/posu)
+
 set(STARS_CLANG_FORMAT ${MLTVRS_CLANG_FORMAT})
 set(STARS_CLANG_TIDY   ${MLTVRS_CLANG_TIDY})
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/modules/stars)
@@ -69,6 +71,10 @@ add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/modules/stars)
 set(CREATURE_CLANG_FORMAT ${MLTVRS_CLANG_FORMAT})
 set(CREATURE_CLANG_TIDY   ${MLTVRS_CLANG_TIDY})
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/modules/creature)
+
+set(NURSERY_CLANG_FORMAT ${MLTVRS_CLANG_FORMAT})
+set(NURSERY_CLANG_TIDY   ${MLTVRS_CLANG_TIDY})
+add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/modules/nursery)
 
 ################
 # Clang-Format #

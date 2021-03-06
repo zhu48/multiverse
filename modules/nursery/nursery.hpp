@@ -1,0 +1,6 @@
+#ifndef MULTIVERSE_NURSERY_NURSERY_HPP
+#define MULTIVERSE_NURSERY_NURSERY_HPP
+
+namespace mltvrs::nursery {}
+
+#endif // #ifndef MULTIVERSE_NURSERY_NURSERY_HPP
