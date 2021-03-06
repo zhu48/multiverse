@@ -75,11 +75,11 @@ add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/modules/creature)
 ################
 
 if(MLTVRS_CLANG_FORMAT)
-    message(STATUS "generating target clang_format")
+    message(STATUS "generating target mltvrs_clang_format")
 
-    add_custom_target(clang_format)
+    add_custom_target(mltvrs_clang_format)
     add_dependencies(
-        clang_format
+        mltvrs_clang_format
             stars_clang_format
             creature_clang_format
             test_creature_stat_clang_format
@@ -93,11 +93,11 @@ endif()
 ##############
 
 if(MLTVRS_CLANG_TIDY)
-    message(STATUS "generating target clang_tidy")
+    message(STATUS "generating target mltvrs_clang_tidy")
 
-    add_custom_target(clang_tidy)
+    add_custom_target(mltvrs_clang_tidy)
     add_dependencies(
-        clang_tidy
+        mltvrs_clang_tidy
             test_creature_stat_clang_tidy
     )
 else()
